@@ -13,3 +13,11 @@
   text-decoration: none;
   color: #3C57F0;
 }
+
+.login .auth-btns {
+  display: flex;
+}
+
+.login .auth-btns > * {
+  margin-right: 20px;
+}

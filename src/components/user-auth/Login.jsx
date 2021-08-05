@@ -3,6 +3,7 @@ import { Link } from 'react-router-dom';
 import { FormInput } from '../form-input/FormInput';
 import { CustomButton } from '../custom-button/CustomButton';
 import '../../css/login.css';
+import { signInWithGoogle } from '../../firebase/firebase';
 
 export const Login = () => {
     const [values, setValues] = useState({
@@ -42,7 +43,10 @@ export const Login = () => {
                     label='Password'
                     required
                 />
-                <CustomButton type='submit'> Sign in </CustomButton>
+                <div className="auth-btns">
+                    <CustomButton type='submit'> Sign in </CustomButton>
+                    <CustomButton onClick={signInWithGoogle}> Sign In with Google </CustomButton>
+                </div>
             </form>
         </div>
     )

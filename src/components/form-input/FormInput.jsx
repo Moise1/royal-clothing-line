@@ -14,4 +14,4 @@ export const FormInput = ({ handleChange, label, ...rest }) => (
       </label>
     ) : null}
   </div>
-);
+); 

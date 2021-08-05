@@ -12,4 +12,12 @@
       text-decoration: none;
       color: #3C57F0
     }
+
+    .auth-btns {
+      display: flex;
+      & > *{
+        margin-right: 20px;
+      }
+    }
+    
   }

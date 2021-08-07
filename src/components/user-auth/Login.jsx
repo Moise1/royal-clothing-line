@@ -18,13 +18,12 @@ export const Login = () => {
 
     const handleChange = e => {
         const { value, name } = e.target;
-        setValues({ [name]: value });
+        setValues({...values,  [name]: value });
     };
 
     return (
         <div className='login'>
-            <h2> Already have an account ?  <span><Link to="/signup" className="auth-link">Sign Up</Link></span></h2>
-            <span>Please Sign In</span>
+            <h2>Please Sign In</h2>
 
             <form onSubmit={handleSubmit}>
                 <FormInput
@@ -45,9 +44,10 @@ export const Login = () => {
                 />
                 <div className="auth-btns">
                     <CustomButton type='submit'> Sign in </CustomButton>
-                    <CustomButton onClick={signInWithGoogle}> Sign In with Google </CustomButton>
+                    <CustomButton onClick={signInWithGoogle} isGoogleSignIn> Sign In with Google </CustomButton>
                 </div>
             </form>
+            <h2 className="alt-text"> Don't haven an an account ?  <span><Link to="/signup" className="auth-link">Sign Up</Link></span></h2>
         </div>
     )
 }

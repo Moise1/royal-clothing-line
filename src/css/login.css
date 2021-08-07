@@ -1,5 +1,6 @@
 .login {
   width: 30vw;
+  height: 70vh;
   padding: 40px 0;
   position: absolute;
   display: flex;
@@ -11,13 +12,18 @@
 
 .login .auth-link {
   text-decoration: none;
-  color: #3C57F0;
+  color: #357ae8;
 }
 
 .login .auth-btns {
   display: flex;
+  position: absolute;
+  width: 25vw;
+  right: 9%;
+  justify-content: space-between;
 }
 
-.login .auth-btns > * {
-  margin-right: 20px;
+.login .alt-text {
+  text-align: center;
+  margin-top: 8rem;
 }

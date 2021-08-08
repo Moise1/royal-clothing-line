@@ -4,12 +4,11 @@ import { Link } from 'react-router-dom';
 import logo from '../../imgs/crown.png';
 import '../../css/header.css';
 import { auth } from '../../firebase/firebase';
-import { useSelector, useDispatch } from 'react-redux'
+import { useSelector} from 'react-redux'
 
 export const Header = () => {
 
-  const dispatch = useDispatch();
-  const {currentUser} = useSelector(state => state.user);
+  const {currentUser} = useSelector(({user}) => user );
   
   // console.log("USER STATE", currentUser);
 

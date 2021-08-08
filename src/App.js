@@ -1,5 +1,6 @@
-import { useState, useEffect } from 'react';
+import { useEffect } from 'react';
 import './App.css';
+import { useDispatch } from 'react-redux'
 import { Home } from './components/Home';
 import { Shop } from './pages/shop/shop';
 import { Header } from './components/header/Header';
@@ -8,9 +9,10 @@ import { Signup } from './components/user-auth/Signup';
 import { auth } from './firebase/firebase';
 import { Switch, Route } from 'react-router-dom';
 import { createUserProfileDoc } from './firebase/firebase';
+import { setCurrentUser } from './redux/actions/users';
 
 export const App = () => {
-  const [currentUser, setCurrentUser] = useState(null);
+  const dispatch = useDispatch();
 
   let unsubscribeFromAuth = null;
 
@@ -20,19 +22,13 @@ export const App = () => {
         const userRef = await createUserProfileDoc(userAuth);
 
         userRef.onSnapshot(snapShot => {
-          console.log('USER SNAPSHOT', snapShot.data());
-          setCurrentUser({
-            currentUser: {
-              id: snapShot.id,
-              ...snapShot.data()
-            }
-          });
-
-          console.log(currentUser);
+          dispatch(setCurrentUser({
+            id: snapShot.id,
+            ...snapShot.data()
+          }))
         });
       }
-
-      setCurrentUser(userAuth);
+     dispatch(setCurrentUser(userAuth));
     });
   }, []);
 
@@ -42,7 +38,7 @@ export const App = () => {
 
   return (
     <div className="App">
-      <Header currentUser={currentUser} />
+      <Header />
       <Switch>
         <Route exact path="/" component={Home} />
         <Route path="/shop" component={Shop} />

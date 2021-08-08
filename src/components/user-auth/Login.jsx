@@ -3,7 +3,7 @@ import { Link } from 'react-router-dom';
 import { FormInput } from '../form-input/FormInput';
 import { CustomButton } from '../custom-button/CustomButton';
 import '../../css/login.css';
-import { signInWithGoogle } from '../../firebase/firebase';
+import { signInWithGoogle, auth } from '../../firebase/firebase';
 
 export const Login = () => {
     const [values, setValues] = useState({
@@ -11,8 +11,14 @@ export const Login = () => {
         password: ''
     })
 
-    const handleSubmit = e => {
+    const handleSubmit = async e => {
         e.preventDefault();
+        const {email, password} = values;
+        try {
+            await auth.signInWithEmailAndPassword(email, password);
+        } catch (error) {
+            if(error) console.log('sign in with Google error:', error);
+        }
         setValues({ email: '', password: '' });
     };
 

@@ -5,6 +5,7 @@ import logo from '../../imgs/crown.png';
 import '../../css/header.css';
 import { auth } from '../../firebase/firebase';
 import { useSelector} from 'react-redux'
+import {CartIcon} from '../cart-icon/CartIcon';
 
 export const Header = () => {
 
@@ -27,6 +28,7 @@ export const Header = () => {
         {currentUser ? <div className='option' onClick={() => auth.signOut()}>SIGN OUT</div> :
           <Link className='option' to='/login'>LOG IN</Link>
         }
+      <CartIcon/>
       </div>
     </div>
   )

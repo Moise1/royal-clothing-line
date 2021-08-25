@@ -6,10 +6,12 @@ import '../../css/header.css';
 import { auth } from '../../firebase/firebase';
 import { useSelector} from 'react-redux'
 import {CartIcon} from '../cart-icon/CartIcon';
+import {CartDropdown} from '../cart-dropdown/CartDropDown';
 
 export const Header = () => {
 
   const {currentUser} = useSelector(({user}) => user );
+  const {hidden} = useSelector(({cart}) => cart)
   
   // console.log("USER STATE", currentUser);
 
@@ -30,6 +32,7 @@ export const Header = () => {
         }
       <CartIcon/>
       </div>
+      {!hidden && <CartDropdown/>}
     </div>
   )
 }

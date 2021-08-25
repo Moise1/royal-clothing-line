@@ -144,7 +144,7 @@ export const dataCollection = [
           imageUrl: 'https://i.ibb.co/s96FpdP/brown-shearling.png',
           price: 165
         },
-        {
+        { 
           id: 22,
           name: 'Tan Trench',
           imageUrl: 'https://i.ibb.co/M6hHc3F/brown-trench.png',

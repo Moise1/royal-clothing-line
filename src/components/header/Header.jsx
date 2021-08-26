@@ -7,14 +7,14 @@ import { auth } from '../../firebase/firebase';
 import { useSelector} from 'react-redux'
 import {CartIcon} from '../cart-icon/CartIcon';
 import {CartDropdown} from '../cart-dropdown/CartDropDown';
+import { createStructuredSelector } from 'reselect';
+import { selectCartHidden } from '../../utils/cartSelectors';
+import {selectCurrentUser } from '../../utils/userSelectors'
 
 export const Header = () => {
-
-  const {currentUser} = useSelector(({user}) => user );
-  const {hidden} = useSelector(({cart}) => cart)
   
-  // console.log("USER STATE", currentUser);
-
+  const {currentUser, hidden} = useSelector(createStructuredSelector({currentUser: selectCurrentUser, hidden: selectCartHidden}));
+  // console.log('CURRENT USER', currentUser);
   return (
     <div className='header'>
       <Link className='logo-container' to='/'>

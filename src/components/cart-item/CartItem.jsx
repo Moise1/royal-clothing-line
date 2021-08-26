@@ -12,5 +12,5 @@ export const CartItem = ({ item: { imageUrl, price, name, quantity } }) => {
                 </span>
             </div>
         </div>
-    )
+    ) 
 }

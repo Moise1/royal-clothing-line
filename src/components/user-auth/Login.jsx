@@ -15,7 +15,8 @@ export const Login = () => {
         e.preventDefault();
         const {email, password} = values;
         try {
-            await auth.signInWithEmailAndPassword(email, password);
+           const signin =  await auth.signInWithEmailAndPassword(email, password);
+           console.log('Google Sign in', signin);
         } catch (error) {
             if(error) console.log('sign in with Google error:', error);
         }

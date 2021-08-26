@@ -1,4 +1,4 @@
-import {useEffect} from 'react'
+import { useEffect } from 'react'
 import { Switch, Route } from 'react-router-dom';
 import { useDispatch } from 'react-redux'
 import { Home } from '../components/Home';
@@ -8,10 +8,11 @@ import { Signup } from '../components/user-auth/Signup';
 import { createUserProfileDoc, auth } from '../firebase/firebase';
 import { setCurrentUser } from '../redux/actions/users';
 import { ProtectedRoute } from './ProtectedRoute';
+import { Checkout } from '../pages/checkout/Checkout';
+
 
 export const Routes = () => {
     const dispatch = useDispatch();
-
     let unsubscribeFromAuth = null;
 
     useEffect(() => {
@@ -38,6 +39,7 @@ export const Routes = () => {
         <Switch>
             <Route exact path="/" component={Home} />
             <Route path="/shop" component={Shop} />
+            <Route exact path='/checkout' component={Checkout} />
             <ProtectedRoute exact path="/login" component={Login} />
             <Route path="/signup" component={Signup} />
         </Switch>

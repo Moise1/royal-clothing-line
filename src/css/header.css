@@ -8,10 +8,18 @@
 
 .header .logo-container {
   height: 100%;
-  width: 70px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
   padding: 25px;
+  text-decoration: none !important;
 }
 
+.logo-container .logo-title{
+  margin-left: 1rem;
+  color: #000;
+  font-size: 1.3rem;
+}
 .header .options {
   width: 50%;
   height: 100%;
